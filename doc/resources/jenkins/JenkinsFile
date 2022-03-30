@@ -14,6 +14,7 @@ node {
             def RESOURCE_GROUP = 'rg-pc-devqa-eastus' 
             def FUNC_NAME = 'func-pc-dev'
             // login Azure
+            echo $AZURE_CLIENT_SECRET
             withCredentials([azureServicePrincipal(credentialsId: 'AzureJenkinsSPN', clientSecretVariable: 'AZURE_CLIENT_SECRET', clientIdVariable: 'AZURE_CLIENT_ID')]) {
             sh '''
                 az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
