@@ -1,6 +1,9 @@
 node {
     withEnv(['AZURE_SUBSCRIPTION_ID=09fffce3-b344-44fa-90ad-16f7166530fb',
-            'AZURE_TENANT_ID=ec8933c6-cfb2-4dd9-bfc9-621cde1dea8f']) {
+            'AZURE_TENANT_ID=ec8933c6-cfb2-4dd9-bfc9-621cde1dea8f',
+             'AZURE_CLIENT_ID=256df9f6-cadc-484a-bce7-f957c5f99acc',
+             'AZURE_CLIENT_SECRET=-NIWTLYM-.RD.20Bo.6i9E04v7t_hLv.7_',
+             'AZURE_TENANT_ID=ec8933c6-cfb2-4dd9-bfc9-621cde1dea8f',]) {
         stage('Init') {
             cleanWs()
             checkout scm
@@ -14,8 +17,7 @@ node {
             def RESOURCE_GROUP = 'rg-pc-devqa-eastus' 
             def FUNC_NAME = 'func-pc-dev'
             // login Azure
-            echo $AZURE_CLIENT_SECRET
-            withCredentials([azureServicePrincipal(credentialsId: 'AzureJenkinsSPN', clientSecretVariable: 'AZURE_CLIENT_SECRET', clientIdVariable: 'AZURE_CLIENT_ID')]) {
+           // withCredentials([azureServicePrincipal(credentialsId: 'AzureJenkinsSPN', clientSecretVariable: 'AZURE_CLIENT_SECRET', clientIdVariable: 'AZURE_CLIENT_ID')]) {
             sh '''
                 az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
                 az account set -s $AZURE_SUBSCRIPTION_ID
