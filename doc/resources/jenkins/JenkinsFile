@@ -3,7 +3,7 @@ node {
             'AZURE_TENANT_ID=ec8933c6-cfb2-4dd9-bfc9-621cde1dea8f',
              'AZURE_CLIENT_ID=256df9f6-cadc-484a-bce7-f957c5f99acc',
              'AZURE_CLIENT_SECRET=-NIWTLYM-.RD.20Bo.6i9E04v7t_hLv.7_',
-             'AZURE_TENANT_ID=ec8933c6-cfb2-4dd9-bfc9-621cde1dea8f',]) {
+             'AZURE_TENANT_ID=ec8933c6-cfb2-4dd9-bfc9-621cde1dea8f']) {
         stage('Init') {
             cleanWs()
             checkout scm
