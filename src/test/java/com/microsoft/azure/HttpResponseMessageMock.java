@@ -37,10 +37,11 @@ public class HttpResponseMessageMock implements HttpResponseMessage {
         private Object body;
 
         @Override
-        public HttpResponseMessage.Builder status(HttpStatus status) {
-            this.status = status;
-            return this;
-        }
+public Builder status( final HttpStatusType httpStatusType ) {
+    this.status = status;
+    return this;
+}
+        
         @Override
         public HttpResponseMessage.Builder header(String key, String value) {
             this.headers.put(key, value);
